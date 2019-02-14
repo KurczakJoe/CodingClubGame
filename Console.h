@@ -9,7 +9,7 @@ public:
 	Console();
 	~Console();
 	void ClearScreen();
-	void HandleInput();
+	void GetInput();
 	void EnemiesInput();
 	void PrintScore();
 	void PrintEndGame();
