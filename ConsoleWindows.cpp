@@ -14,6 +14,9 @@ Console::~Console() {
 	
 }
 
+void Console::Init() {
+}
+
 void Console::ClearScreen() {
     HANDLE hOut;
     COORD Position;
@@ -24,6 +27,7 @@ void Console::ClearScreen() {
 }
 
 void Console::HandleInput() {
+	system("pause>nul");
 	if(GetAsyncKeyState(VK_UP)) game.player->Move({-1, 0});
 	if(GetAsyncKeyState(VK_DOWN)) game.player->Move({1, 0});
 	if(GetAsyncKeyState(VK_RIGHT)) game.player->Move({0, 1});

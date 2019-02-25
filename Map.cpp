@@ -1,4 +1,5 @@
-#include <iostream>
+#include <stdlib.h>
+#include <ncurses.h>
 #include "Map.h"
 
 extern const int xSize = 10;
@@ -45,8 +46,10 @@ int Map::CountDots() {
 	return dots;
 }
 
-void Map::DrawMap() {
+void Map::DrawMap(Console &console) {
+	console.ClearScreen();
 	for(int i = 0; i < xSize; i++) {
-		std::cout << mapTable[i] << std::endl;
+		mvprintw(i, 0, mapTable[i]);
 	}
+	refresh();
 }

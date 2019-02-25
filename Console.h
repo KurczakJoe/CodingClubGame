@@ -8,8 +8,9 @@ class Console {
 public:
 	Console();
 	~Console();
+        void Init();
 	void ClearScreen();
-	void GetInput();
+	void HandleInput();
 	void EnemiesInput();
 	void PrintScore();
 	void PrintEndGame();

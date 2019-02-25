@@ -7,10 +7,11 @@ Console console;
 Map map;
 
 int main() {
+	console.Init();
 	srand(time(NULL));
 	while(gamerunning) {
 		console.ClearScreen();
-		map.DrawMap();
+		map.DrawMap(console);
 		
 		console.PrintScore();
 		
@@ -19,7 +20,6 @@ int main() {
 			gamerunning = false;
 		} 
 		
-		system("pause>nul");
 		console.HandleInput();
 		console.EnemiesInput();
 	}
