@@ -5,7 +5,6 @@
 #include <windows.h>
 
 Console::Console() {
-	Game game;
 }
 
 Console::~Console() {
@@ -24,7 +23,7 @@ void Console::ClearScreen() {
     SetConsoleCursorPosition(hOut, Position);
 }
 
-void Console::HandleInput() {
+void Console::HandleInput(Game &game) {
 	system("pause>nul");
 	if(GetAsyncKeyState(VK_UP)) game.player->Move({-1, 0});
 	if(GetAsyncKeyState(VK_DOWN)) game.player->Move({1, 0});
@@ -33,7 +32,7 @@ void Console::HandleInput() {
 	if(GetAsyncKeyState(VK_ESCAPE)) game.running = false;
 }
 
-void Console::EnemiesInput() {
+void Console::EnemiesInput(Game &game) {
 	for(Player *enemy : game.enemies) {
 		char dir = enemy->findDirToOpponent(game.player);
 		if(dir == 'U') enemy->Move({-1, 0});
@@ -43,7 +42,7 @@ void Console::EnemiesInput() {
 	}
 }
 
-void Console::PrintScore() {
+void Console::PrintScore(Game &game) {
 	std::cout << "======================" << std::endl;
 	std::cout << "Your score:     " << game.player->score << std::endl;
 	std::cout << "Your hp: " << game.player->health << "    Your power: " << game.player->power << "    " << std::endl;
@@ -53,7 +52,7 @@ void Console::PrintScore() {
 	std::cout << "======================" << std::endl;
 }
 
-void Console::PrintEndGame() {
+void Console::PrintEndGame(Game &game) {
 	std::cout << "======================" << std::endl;
 	std::cout << "Game over!" << std::endl;
 	Player winner = game.getWinner();

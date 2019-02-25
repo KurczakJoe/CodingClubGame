@@ -7,7 +7,6 @@
 
 
 Console::Console() {
-	Game game;
 }
 
 Console::~Console() {
@@ -26,7 +25,7 @@ void Console::ClearScreen() {
     clear();
 }
 
-void Console::HandleInput() {
+void Console::HandleInput(Game &game) {
 	int key = getch();
 //        printw("(%d) up%d dn%d right%d left%d exit%d\n", key, key == KEY_UP,key == KEY_DOWN,key == KEY_RIGHT,key == KEY_LEFT,key == KEY_EXIT); getch(); refresh();
 	if(key == KEY_UP) game.player->Move({-1, 0});
@@ -36,7 +35,7 @@ void Console::HandleInput() {
 	if(key == KEY_EXIT) game.running = false;
 }
 
-void Console::EnemiesInput() {
+void Console::EnemiesInput(Game &game) {
 	for(Player *enemy : game.enemies) {
 		char dir = enemy->findDirToOpponent(game.player);
 		if(dir == 'U') enemy->Move({-1, 0});
@@ -46,7 +45,7 @@ void Console::EnemiesInput() {
 	}
 }
 
-void Console::PrintScore() {
+void Console::PrintScore(Game &game) {
 	printw("======================\n");
 	printw("Your score: %d\n", game.player->score);
 	printw("Your hp: %d  Your power:%d\n", game.player->health, game.player->power);
@@ -57,7 +56,7 @@ void Console::PrintScore() {
 	refresh();
 }
 
-void Console::PrintEndGame() {
+void Console::PrintEndGame(Game &game) {
 	printw("======================\n");
 	printw("Game over!\n");
 	Player winner = game.getWinner();

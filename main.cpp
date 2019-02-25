@@ -15,24 +15,25 @@
         `-----Main ------'
 */
 
+Game game;
 Console console;
 Map map;
 
 int main() {
 	console.Init();
 	srand(time(NULL));
-	while(console.game.running) {
+	while(game.running) {
 		console.ClearScreen();
 		map.DrawMap(console);
 		
-		console.PrintScore();
+		console.PrintScore(game);
 		
 		if(map.CountDots() == 0) {
-			console.PrintEndGame();
-			console.game.running = false;
+			console.PrintEndGame(game);
+			game.running = false;
 		} 
 		
-		console.HandleInput();
-		console.EnemiesInput();
+		console.HandleInput(game);
+		console.EnemiesInput(game);
 	}
 }

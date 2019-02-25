@@ -10,11 +10,10 @@ public:
 	~Console();
         void Init();
 	void ClearScreen();
-	void HandleInput();
-	void EnemiesInput();
-	void PrintScore();
-	void PrintEndGame();
-	Game game;
+	void HandleInput(Game &game);
+	void EnemiesInput(Game &game);
+	void PrintScore(Game &game);
+	void PrintEndGame(Game &game);
 };
 
 
