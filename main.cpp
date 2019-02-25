@@ -3,6 +3,18 @@
 #include "Map.h"
 #include "Game.h"
 
+/*
+
+       .--> Map <---------.
+       |.-->  Stats <----.|
+       ||      Player <-.||
+       ||               |||
+    Console             Game
+       ^                 ^
+       |                 |
+        `-----Main ------'
+*/
+
 Console console;
 Map map;
 
