@@ -4,8 +4,6 @@
 #include "Game.h"
 #include <windows.h>
 
-bool gamerunning = true;
-
 Console::Console() {
 	Game game;
 }
@@ -32,7 +30,7 @@ void Console::HandleInput() {
 	if(GetAsyncKeyState(VK_DOWN)) game.player->Move({1, 0});
 	if(GetAsyncKeyState(VK_RIGHT)) game.player->Move({0, 1});
 	if(GetAsyncKeyState(VK_LEFT)) game.player->Move({0, -1});
-	if(GetAsyncKeyState(VK_ESCAPE)) gamerunning = false;
+	if(GetAsyncKeyState(VK_ESCAPE)) game.running = false;
 }
 
 void Console::EnemiesInput() {

@@ -5,7 +5,6 @@
 #include "Game.h"
 
 
-bool gamerunning = true;
 
 Console::Console() {
 	Game game;
@@ -34,7 +33,7 @@ void Console::HandleInput() {
 	if(key == KEY_DOWN) game.player->Move({1, 0});
 	if(key == KEY_RIGHT) game.player->Move({0, 1});
 	if(key == KEY_LEFT) game.player->Move({0, -1});
-	if(key == KEY_EXIT) gamerunning = false;
+	if(key == KEY_EXIT) game.running = false;
 }
 
 void Console::EnemiesInput() {

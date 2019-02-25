@@ -2,6 +2,7 @@
 #include "Player.h"
 
 Game::Game() {
+	running = true;
 	player = new Player({1,1},'@', 4, "Ania");
 	enemy1 = new Player({8,8},'$', 3, "Enemy1");
 	enemy2 = new Player({1,8},'$', 3, "Enemy2");

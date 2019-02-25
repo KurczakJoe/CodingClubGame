@@ -21,7 +21,7 @@ Map map;
 int main() {
 	console.Init();
 	srand(time(NULL));
-	while(gamerunning) {
+	while(console.game.running) {
 		console.ClearScreen();
 		map.DrawMap(console);
 		
@@ -29,7 +29,7 @@ int main() {
 		
 		if(map.CountDots() == 0) {
 			console.PrintEndGame();
-			gamerunning = false;
+			console.game.running = false;
 		} 
 		
 		console.HandleInput();

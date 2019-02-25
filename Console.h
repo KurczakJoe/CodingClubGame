@@ -17,6 +17,5 @@ public:
 	Game game;
 };
 
-extern bool gamerunning;
 
 #endif
