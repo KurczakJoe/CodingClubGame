@@ -2,11 +2,11 @@
 #include "Map.h"
 #include "Point.h"
 
-Player::Player(Point loc, char av, int pow, std::string name) {
+Player::Player(Map &map, Point loc, char av, int pow, std::string name) {
 	playerName = name;
 	playerLoc = loc;
 	avatar = av;
-	mapTable[loc.x][loc.y] = avatar;
+	map.mapTable[loc.x][loc.y] = avatar;
 	score = 0;
 	health = 100;
 	power = pow;
@@ -16,14 +16,14 @@ Player::~Player() {
 	
 }
 
-void Player::Move(Point point) {
+void Player::Move(Map &map, Point point) {
 	Point pOld = this->playerLoc;
 	Point pNew = pOld + point;
 
-	if(mapTable[pNew.x][pNew.y] == ' ' || mapTable[pNew.x][pNew.y] == '.') {
-		if(mapTable[pNew.x][pNew.y] == '.') this->score++;
-		mapTable[pOld.x][pOld.y] = ' ';
-		mapTable[pNew.x][pNew.y] = this->avatar;
+	if(map.mapTable[pNew.x][pNew.y] == ' ' || map.mapTable[pNew.x][pNew.y] == '.') {
+		if(map.mapTable[pNew.x][pNew.y] == '.') this->score++;
+		map.mapTable[pOld.x][pOld.y] = ' ';
+		map.mapTable[pNew.x][pNew.y] = this->avatar;
 		this->playerLoc = this->playerLoc + point;
 	}
 }

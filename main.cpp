@@ -5,8 +5,10 @@
 
 /*
 
-       .--> Map <---------.
-       |.-->  Stats <----.|
+       .-->  Stats <------.
+       | .--> Map <------.|
+	   ||       ^        ||
+	   ||       |        ||
        ||      Player <-.||
        ||               |||
     Console             Game
@@ -15,9 +17,9 @@
         `-----Main ------'
 */
 
-Game game;
 Console console;
 Map map;
+Game game(map);
 
 int main() {
 	console.Init();
@@ -33,7 +35,7 @@ int main() {
 			game.running = false;
 		} 
 		
-		console.HandleInput(game);
-		game.EnemiesInput();
+		console.HandleInput(game, map);
+		game.EnemiesInput(map);
 	}
 }

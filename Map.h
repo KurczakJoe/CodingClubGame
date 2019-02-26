@@ -9,10 +9,11 @@ public:
 	~Map();
 	void PlaceDots();
 	int CountDots();
+
+	int xSize;
+	int ySize;
+	char mapTable[10][11];
 };
 
-extern const int xSize;
-extern const int ySize;
-extern char mapTable[10][11];
 
 #endif

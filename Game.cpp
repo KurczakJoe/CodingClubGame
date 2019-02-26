@@ -1,12 +1,12 @@
 #include "Game.h"
 #include "Player.h"
 
-Game::Game() {
+Game::Game(Map &map) {
 	running = true;
-	player = new Player({1,1},'@', 4, "Ania");
-	enemy1 = new Player({8,8},'$', 3, "Enemy1");
-	enemy2 = new Player({1,8},'$', 3, "Enemy2");
-	enemy3 = new Player({8,1},'$', 3, "Enemy3");
+	player = new Player(map, {1,1},'@', 4, "Ania");
+	enemy1 = new Player(map, {8,8},'$', 3, "Enemy1");
+	enemy2 = new Player(map, {1,8},'$', 3, "Enemy2");
+	enemy3 = new Player(map, {8,1},'$', 3, "Enemy3");
 	pushEnemiesToVector();
 }
 
@@ -20,13 +20,13 @@ void Game::pushEnemiesToVector() {
 	this->enemies.push_back(this->enemy3);
 }
 
-void Game::EnemiesInput() {
+void Game::EnemiesInput(Map &map) {
 	for(Player *enemy : enemies) {
 		char dir = enemy->findDirToOpponent(player);
-		if(dir == 'U') enemy->Move({-1, 0});
-		if(dir == 'R') enemy->Move({0, 1});
-		if(dir == 'D') enemy->Move({1, 0});
-		if(dir == 'L') enemy->Move({0, -1});
+		if(dir == 'U') enemy->Move(map, {-1, 0});
+		if(dir == 'R') enemy->Move(map, {0, 1});
+		if(dir == 'D') enemy->Move(map, {1, 0});
+		if(dir == 'L') enemy->Move(map, {0, -1});
 	}
 }
 

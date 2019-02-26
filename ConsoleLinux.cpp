@@ -25,20 +25,20 @@ void Console::ClearScreen() {
     clear();
 }
 
-void Console::HandleInput(Game &game) {
+void Console::HandleInput(Game &game, Map &map) {
 	int key = getch();
 //        printw("(%d) up%d dn%d right%d left%d exit%d\n", key, key == KEY_UP,key == KEY_DOWN,key == KEY_RIGHT,key == KEY_LEFT,key == KEY_EXIT); getch(); refresh();
-	if(key == KEY_UP) game.player->Move({-1, 0});
-	if(key == KEY_DOWN) game.player->Move({1, 0});
-	if(key == KEY_RIGHT) game.player->Move({0, 1});
-	if(key == KEY_LEFT) game.player->Move({0, -1});
+	if(key == KEY_UP) game.player->Move(map, {-1, 0});
+	if(key == KEY_DOWN) game.player->Move(map, {1, 0});
+	if(key == KEY_RIGHT) game.player->Move(map, {0, 1});
+	if(key == KEY_LEFT) game.player->Move(map, {0, -1});
 	if(key == KEY_EXIT) game.running = false;
 }
 
 void Console::DrawMap(Map &map) {
 	ClearScreen();
-	for(int i = 0; i < xSize; i++) {
-		mvprintw(i, 0, mapTable[i]);
+	for(int i = 0; i < map.xSize; i++) {
+		mvprintw(i, 0, map.mapTable[i]);
 	}
 	refresh();
 }

@@ -6,10 +6,10 @@
 
 class Game {
 public:
-	Game();
+	Game(Map &map);
 	~Game();
 	void pushEnemiesToVector();
-	void EnemiesInput();
+	void EnemiesInput(Map &map);
 	Player getWinner();
 	bool running;
 	Player* player;

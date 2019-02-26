@@ -14,6 +14,6 @@ endif
 all: hello
 
 hello: $(CORESRC) $(COREINC) $(OSFILES)
-	g++ -o hello  $(OSLIBS) $(CORESRC) $(OSFILES)
+	g++ -ggdb -o hello  $(OSLIBS) $(CORESRC) $(OSFILES)
 	
 

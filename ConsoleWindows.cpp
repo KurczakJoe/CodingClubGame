@@ -23,19 +23,19 @@ void Console::ClearScreen() {
     SetConsoleCursorPosition(hOut, Position);
 }
 
-void Console::HandleInput(Game &game) {
+void Console::HandleInput(Game &game, Map &map) {
 	system("pause>nul");
-	if(GetAsyncKeyState(VK_UP)) game.player->Move({-1, 0});
-	if(GetAsyncKeyState(VK_DOWN)) game.player->Move({1, 0});
-	if(GetAsyncKeyState(VK_RIGHT)) game.player->Move({0, 1});
-	if(GetAsyncKeyState(VK_LEFT)) game.player->Move({0, -1});
+	if(GetAsyncKeyState(VK_UP)) game.player->Move(map, {-1, 0});
+	if(GetAsyncKeyState(VK_DOWN)) game.player->Move(map, {1, 0});
+	if(GetAsyncKeyState(VK_RIGHT)) game.player->Move(map, {0, 1});
+	if(GetAsyncKeyState(VK_LEFT)) game.player->Move(map, {0, -1});
 	if(GetAsyncKeyState(VK_ESCAPE)) game.running = false;
 }
 
 void Console::DrawMap(Map &map) {
 	ClearScreen();
-	for(int i = 0; i < xSize; i++) {
-		std::cout << mapTable[i] << std::endl;
+	for(int i = 0; i < map.xSize; i++) {
+		std::cout << map.mapTable[i] << std::endl;
 	}
 }
 

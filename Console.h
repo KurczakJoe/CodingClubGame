@@ -11,7 +11,7 @@ public:
 	~Console();
         void Init();
 	void ClearScreen();
-	void HandleInput(Game &game);
+	void HandleInput(Game &game, Map &map);
 	void DrawMap(Map &map);
 	void PrintScore(Game &game);
 	void PrintEndGame(Game &game);
