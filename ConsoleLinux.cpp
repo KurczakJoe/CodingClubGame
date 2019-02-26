@@ -35,16 +35,6 @@ void Console::HandleInput(Game &game) {
 	if(key == KEY_EXIT) game.running = false;
 }
 
-void Console::EnemiesInput(Game &game) {
-	for(Player *enemy : game.enemies) {
-		char dir = enemy->findDirToOpponent(game.player);
-		if(dir == 'U') enemy->Move({-1, 0});
-		if(dir == 'R') enemy->Move({0, 1});
-		if(dir == 'D') enemy->Move({1, 0});
-		if(dir == 'L') enemy->Move({0, -1});
-	}
-}
-
 void Console::PrintScore(Game &game) {
 	printw("======================\n");
 	printw("Your score: %d\n", game.player->score);

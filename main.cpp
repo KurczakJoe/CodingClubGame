@@ -34,6 +34,6 @@ int main() {
 		} 
 		
 		console.HandleInput(game);
-		console.EnemiesInput(game);
+		game.EnemiesInput();
 	}
 }

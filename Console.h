@@ -11,7 +11,6 @@ public:
         void Init();
 	void ClearScreen();
 	void HandleInput(Game &game);
-	void EnemiesInput(Game &game);
 	void PrintScore(Game &game);
 	void PrintEndGame(Game &game);
 };

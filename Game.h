@@ -9,6 +9,7 @@ public:
 	Game();
 	~Game();
 	void pushEnemiesToVector();
+	void EnemiesInput();
 	Player getWinner();
 	bool running;
 	Player* player;

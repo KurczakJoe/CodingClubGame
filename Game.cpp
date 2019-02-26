@@ -20,6 +20,16 @@ void Game::pushEnemiesToVector() {
 	this->enemies.push_back(this->enemy3);
 }
 
+void Game::EnemiesInput() {
+	for(Player *enemy : enemies) {
+		char dir = enemy->findDirToOpponent(player);
+		if(dir == 'U') enemy->Move({-1, 0});
+		if(dir == 'R') enemy->Move({0, 1});
+		if(dir == 'D') enemy->Move({1, 0});
+		if(dir == 'L') enemy->Move({0, -1});
+	}
+}
+
 Player Game::getWinner() {
 	Player *winner = this->player;
 	int maxScore = this->player->score;
