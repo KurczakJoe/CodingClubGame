@@ -1,7 +1,7 @@
 #include "Game.h"
 #include "Player.h"
 
-Game::Game(Map &map) {
+Game::Game() {
 	running = true;
 	player = new Player(map, {1,1},'@', 4, "Ania");
 	enemy1 = new Player(map, {8,8},'$', 3, "Enemy1");
@@ -20,7 +20,7 @@ void Game::pushEnemiesToVector() {
 	this->enemies.push_back(this->enemy3);
 }
 
-void Game::HandleInput(Map &map, KeyPressed key) {
+void Game::HandleInput(KeyPressed key) {
 	switch (key) {
 		case KeyUp:    player->Move(map, {-1, 0}); break;
 		case KeyDown:  player->Move(map, {1, 0}); break;
@@ -30,7 +30,7 @@ void Game::HandleInput(Map &map, KeyPressed key) {
 	}
 }
 
-void Game::EnemiesInput(Map &map) {
+void Game::EnemiesInput() {
 	for(Player *enemy : enemies) {
 		char dir = enemy->findDirToOpponent(player);
 		if(dir == 'U') enemy->Move(map, {-1, 0});

@@ -7,13 +7,15 @@
 
 class Game {
 public:
-	Game(Map &map);
+	Game();
 	~Game();
-	void HandleInput(Map &map, KeyPressed key);
+	void HandleInput(KeyPressed key);
 	void pushEnemiesToVector();
-	void EnemiesInput(Map &map);
+	void EnemiesInput();
 	Player getWinner();
+	
 	bool running;
+	Map map;
 	Player* player;
 	Player* enemy1;
 	Player* enemy2;

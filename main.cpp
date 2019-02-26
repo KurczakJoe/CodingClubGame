@@ -19,25 +19,23 @@
 */
 
 Console console;
-Map map;
-Game game(map);
+Game game;
 
 int main() {
 	console.Init();
 	srand(time(NULL));
 	while(game.running) {
 		console.ClearScreen();
-		console.DrawMap(map);
-		
+		console.DrawMap(game.map);
 		console.PrintScore(game);
 		
-		if(map.CountDots() == 0) {
+		if(game.map.CountDots() == 0) {
 			console.PrintEndGame(game);
 			game.running = false;
 		} 
 		
 		KeyPressed key = console.getKey();
-		game.HandleInput(map, key);
-		game.EnemiesInput(map);
+		game.HandleInput(key);
+		game.EnemiesInput();
 	}
 }
