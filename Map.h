@@ -2,7 +2,6 @@
 #define MAP_H
 #pragma once
 #include "Point.h"
-#include "Console.h"
 
 class Map {
 public:
@@ -10,7 +9,6 @@ public:
 	~Map();
 	void PlaceDots();
 	int CountDots();
-	void DrawMap(Console &console);
 };
 
 extern const int xSize;

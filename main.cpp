@@ -24,7 +24,7 @@ int main() {
 	srand(time(NULL));
 	while(game.running) {
 		console.ClearScreen();
-		map.DrawMap(console);
+		console.DrawMap(map);
 		
 		console.PrintScore(game);
 		

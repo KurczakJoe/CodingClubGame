@@ -2,6 +2,7 @@
 #define CONSOLE_H
 #include "Player.h"
 #include "Game.h"
+#include "Map.h"
 #pragma once
 
 class Console {
@@ -11,6 +12,7 @@ public:
         void Init();
 	void ClearScreen();
 	void HandleInput(Game &game);
+	void DrawMap(Map &map);
 	void PrintScore(Game &game);
 	void PrintEndGame(Game &game);
 };

@@ -35,6 +35,14 @@ void Console::HandleInput(Game &game) {
 	if(key == KEY_EXIT) game.running = false;
 }
 
+void Console::DrawMap(Map &map) {
+	ClearScreen();
+	for(int i = 0; i < xSize; i++) {
+		mvprintw(i, 0, mapTable[i]);
+	}
+	refresh();
+}
+
 void Console::PrintScore(Game &game) {
 	printw("======================\n");
 	printw("Your score: %d\n", game.player->score);

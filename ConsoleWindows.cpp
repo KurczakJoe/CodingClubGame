@@ -32,6 +32,13 @@ void Console::HandleInput(Game &game) {
 	if(GetAsyncKeyState(VK_ESCAPE)) game.running = false;
 }
 
+void Console::DrawMap(Map &map) {
+	ClearScreen();
+	for(int i = 0; i < xSize; i++) {
+		std::cout << mapTable[i] << std::endl;
+	}
+}
+
 void Console::PrintScore(Game &game) {
 	std::cout << "======================" << std::endl;
 	std::cout << "Your score:     " << game.player->score << std::endl;
