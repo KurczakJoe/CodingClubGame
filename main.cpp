@@ -1,11 +1,12 @@
 #include <time.h>
+#include "Common.h"
 #include "Console.h"
 #include "Map.h"
 #include "Game.h"
 
 /*
 
-       .-->  Stats <------.
+       .--> Common <------.
        | .--> Map <------.|
 	   ||       ^        ||
 	   ||       |        ||
@@ -35,7 +36,8 @@ int main() {
 			game.running = false;
 		} 
 		
-		console.HandleInput(game, map);
+		KeyPressed key = console.getKey();
+		game.HandleInput(map, key);
 		game.EnemiesInput(map);
 	}
 }

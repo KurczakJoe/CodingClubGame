@@ -25,14 +25,14 @@ void Console::ClearScreen() {
     clear();
 }
 
-void Console::HandleInput(Game &game, Map &map) {
+KeyPressed Console::getKey() {
 	int key = getch();
-//        printw("(%d) up%d dn%d right%d left%d exit%d\n", key, key == KEY_UP,key == KEY_DOWN,key == KEY_RIGHT,key == KEY_LEFT,key == KEY_EXIT); getch(); refresh();
-	if(key == KEY_UP) game.player->Move(map, {-1, 0});
-	if(key == KEY_DOWN) game.player->Move(map, {1, 0});
-	if(key == KEY_RIGHT) game.player->Move(map, {0, 1});
-	if(key == KEY_LEFT) game.player->Move(map, {0, -1});
-	if(key == KEY_EXIT) game.running = false;
+	if(key == KEY_UP) return KeyUp;
+	if(key == KEY_DOWN) return KeyDown;
+	if(key == KEY_RIGHT) return KeyRight;
+	if(key == KEY_LEFT) return KeyLeft;
+	if(key == KEY_EXIT) return KeyExit;
+	return KeyOther;
 }
 
 void Console::DrawMap(Map &map) {

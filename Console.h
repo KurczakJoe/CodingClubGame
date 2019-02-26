@@ -1,5 +1,6 @@
 #ifndef CONSOLE_H
 #define CONSOLE_H
+#include "Common.h"
 #include "Player.h"
 #include "Game.h"
 #include "Map.h"
@@ -9,12 +10,12 @@ class Console {
 public:
 	Console();
 	~Console();
-        void Init();
+	void Init();
 	void ClearScreen();
-	void HandleInput(Game &game, Map &map);
 	void DrawMap(Map &map);
 	void PrintScore(Game &game);
 	void PrintEndGame(Game &game);
+	KeyPressed getKey();
 };
 
 

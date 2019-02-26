@@ -20,6 +20,16 @@ void Game::pushEnemiesToVector() {
 	this->enemies.push_back(this->enemy3);
 }
 
+void Game::HandleInput(Map &map, KeyPressed key) {
+	switch (key) {
+		case KeyUp:    player->Move(map, {-1, 0}); break;
+		case KeyDown:  player->Move(map, {1, 0}); break;
+		case KeyRight: player->Move(map, {0, 1}); break;
+		case KeyLeft:  player->Move(map, {0, -1}); break;
+		case KeyExit: running = false; break;
+	}
+}
+
 void Game::EnemiesInput(Map &map) {
 	for(Player *enemy : enemies) {
 		char dir = enemy->findDirToOpponent(player);

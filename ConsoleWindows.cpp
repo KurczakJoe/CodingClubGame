@@ -23,13 +23,14 @@ void Console::ClearScreen() {
     SetConsoleCursorPosition(hOut, Position);
 }
 
-void Console::HandleInput(Game &game, Map &map) {
+KeyPressed Console::getKey() {
 	system("pause>nul");
-	if(GetAsyncKeyState(VK_UP)) game.player->Move(map, {-1, 0});
-	if(GetAsyncKeyState(VK_DOWN)) game.player->Move(map, {1, 0});
-	if(GetAsyncKeyState(VK_RIGHT)) game.player->Move(map, {0, 1});
-	if(GetAsyncKeyState(VK_LEFT)) game.player->Move(map, {0, -1});
-	if(GetAsyncKeyState(VK_ESCAPE)) game.running = false;
+	if(GetAsyncKeyState(VK_UP)) return KeyUp;
+	if(GetAsyncKeyState(VK_DOWN)) return KeyDown;
+	if(GetAsyncKeyState(VK_RIGHT)) return KeyRight;
+	if(GetAsyncKeyState(VK_LEFT)) return KeyLeft;
+	if(GetAsyncKeyState(VK_ESCAPE)) return KeyExit;
+	return KeyOther;
 }
 
 void Console::DrawMap(Map &map) {
