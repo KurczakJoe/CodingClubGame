@@ -1,8 +1,5 @@
-#include <iostream>
 #include <ncurses.h>
 #include "Console.h"
-#include "Player.h"
-#include "Game.h"
 
 
 
@@ -43,22 +40,22 @@ void Console::DrawMap(Map &map) {
 	refresh();
 }
 
-void Console::PrintScore(Game &game) {
+void Console::PrintScore(Status status) {
 	printw("======================\n");
-	printw("Your score: %d\n", game.player->score);
-	printw("Your hp: %d  Your power:%d\n", game.player->health, game.player->power);
+	printw("Your status: %d\n", status.score);
+	printw("Your hp: %d  Your power:%d\n", status.health, status.power);
 	printw("======================\n");
-	for(int i = 0; i < game.enemies.size(); i++)
-		printw("%s score: %d, \n", game.enemies[i]->playerName.c_str(), game.enemies[i]->score);
+	for(int i = 0; i < status.enemy_name.size(); i++)
+		printw("%s status: %d, \n", status.enemy_name[i], status.enemy_score[i]);
 	printw("======================\n");
 	refresh();
 }
 
-void Console::PrintEndGame(Game &game) {
+void Console::PrintEndGame(Status status) {
 	printw("======================\n");
 	printw("Game over!\n");
-	Player winner = game.getWinner();
-	printw("The winner is: %s\n", winner.playerName.c_str());
+	printw("The winner is: %s\n", status.winner_name);
 	printw("======================\n");
 	refresh();
 }
+

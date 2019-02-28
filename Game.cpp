@@ -50,3 +50,23 @@ Player Game::getWinner() {
 		}
 	return *winner;
 }
+
+Status Game::getStatus()
+{
+	Status status;
+	
+	status.score = player->score;
+	status.health = player->health;
+	status.power = player->power;
+	
+	for(int i = 0; i < enemies.size(); i++)
+	{
+		status.enemy_name.push_back(enemies[i]->playerName.c_str());
+		status.enemy_score.push_back(enemies[i]->score);
+	}
+
+	status.winner_name = running ? "" : getWinner().playerName.c_str();
+
+	return status;
+}
+

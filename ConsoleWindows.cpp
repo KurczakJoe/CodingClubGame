@@ -1,7 +1,5 @@
 #include <iostream>
 #include "Console.h"
-#include "Player.h"
-#include "Game.h"
 #include <windows.h>
 
 Console::Console() {
@@ -40,20 +38,19 @@ void Console::DrawMap(Map &map) {
 	}
 }
 
-void Console::PrintScore(Game &game) {
+void Console::PrintScore(Status status) {
 	std::cout << "======================" << std::endl;
-	std::cout << "Your score:     " << game.player->score << std::endl;
-	std::cout << "Your hp: " << game.player->health << "    Your power: " << game.player->power << "    " << std::endl;
+	std::cout << "Your score:     " << status.score << std::endl;
+	std::cout << "Your hp: " << status.health << "    Your power: " << status.power << "    " << std::endl;
 	std::cout << "======================" << std::endl;
-	for(int i = 0; i < game.enemies.size(); i++)
-		std::cout << game.enemies[i]->playerName << " score: " << game.enemies[i]->score << std::endl;
+	for(int i = 0; i < game.enemy_name.size(); i++)
+		std::cout << status.enemy_name[i] << " score: " << status.enemy_score[i] << std::endl;
 	std::cout << "======================" << std::endl;
 }
 
-void Console::PrintEndGame(Game &game) {
+void Console::PrintEndGame(Status status) {
 	std::cout << "======================" << std::endl;
 	std::cout << "Game over!" << std::endl;
-	Player winner = game.getWinner();
-	std::cout << "The winner is: " << winner.playerName << std::endl;
+	std::cout << "The winner is: " << status.winner_name << std::endl;
 	std::cout << "======================" << std::endl;
 }

@@ -27,10 +27,10 @@ int main() {
 	while(game.running) {
 		console.ClearScreen();
 		console.DrawMap(game.map);
-		console.PrintScore(game);
+		console.PrintScore(game.getStatus());
 		
 		if(game.map.CountDots() == 0) {
-			console.PrintEndGame(game);
+			console.PrintEndGame(game.getStatus());
 			game.running = false;
 		} 
 		
