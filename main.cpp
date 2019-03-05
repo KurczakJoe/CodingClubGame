@@ -24,18 +24,16 @@ Game game;
 int main() {
 	console.Init();
 	srand(time(NULL));
+	
 	while(game.running) {
 		console.ClearScreen();
 		console.DrawMap(game.map);
 		console.PrintScore(game.getStatus());
 		
-		if(game.map.CountDots() == 0) {
-			console.PrintEndGame(game.getStatus());
-			game.running = false;
-		} 
-		
 		KeyPressed key = console.getKey();
 		game.HandleInput(key);
 		game.EnemiesInput();
 	}
+	
+	console.PrintEndGame(game.getStatus());
 }

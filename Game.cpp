@@ -28,6 +28,10 @@ void Game::HandleInput(KeyPressed key) {
 		case KeyLeft:  player->Move(map, {0, -1}); break;
 		case KeyExit: running = false; break;
 	}
+		
+	if(map.CountDots() == 0) {
+		running = false;
+	} 
 }
 
 void Game::EnemiesInput() {
