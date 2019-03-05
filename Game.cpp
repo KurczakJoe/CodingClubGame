@@ -4,20 +4,13 @@
 Game::Game() {
 	running = true;
 	player = new Player(map, {1,1},'@', 4, "Ania");
-	enemy1 = new Player(map, {8,8},'$', 3, "Enemy1");
-	enemy2 = new Player(map, {1,8},'$', 3, "Enemy2");
-	enemy3 = new Player(map, {8,1},'$', 3, "Enemy3");
-	pushEnemiesToVector();
+	this->enemies.push_back(new Player(map, {8,8},'$', 3, "Enemy1"));
+	this->enemies.push_back(new Player(map, {1,8},'$', 3, "Enemy2"));
+	this->enemies.push_back(new Player(map, {8,1},'$', 3, "Enemy3"));
 }
 
 Game::~Game() {
 	
-}
-
-void Game::pushEnemiesToVector() {
-	this->enemies.push_back(this->enemy1);
-	this->enemies.push_back(this->enemy2);
-	this->enemies.push_back(this->enemy3);
 }
 
 void Game::HandleInput(KeyPressed key) {

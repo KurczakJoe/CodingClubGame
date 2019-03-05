@@ -19,9 +19,6 @@ public:
 	bool running;
 	Map map;
 	Player* player;
-	Player* enemy1;
-	Player* enemy2;
-	Player* enemy3;
 	std::vector<Player*> enemies;
 };
 
