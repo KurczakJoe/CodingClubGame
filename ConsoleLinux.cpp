@@ -34,8 +34,8 @@ KeyPressed Console::getKey() {
 
 void Console::DrawMap(Map &map) {
 	ClearScreen();
-	for(int i = 0; i < map.xSize; i++) {
-		mvprintw(i, 0, map.mapTable[i]);
+	for(int y = 0; y < map.getH(); y++) {
+		mvprintw(y, 0, map.get_row(y));
 	}
 	refresh();
 }

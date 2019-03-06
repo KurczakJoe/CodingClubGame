@@ -33,8 +33,8 @@ KeyPressed Console::getKey() {
 
 void Console::DrawMap(Map &map) {
 	ClearScreen();
-	for(int i = 0; i < map.xSize; i++) {
-		std::cout << map.mapTable[i] << std::endl;
+	for(int y = 0; y < map.getH(); y++) {
+		std::cout << map.get_row(y) << std::endl;
 	}
 }
 

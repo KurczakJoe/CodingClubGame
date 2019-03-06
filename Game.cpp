@@ -15,10 +15,10 @@ Game::~Game() {
 
 void Game::HandleInput(KeyPressed key) {
 	switch (key) {
-		case KeyUp:    player->Move(map, {-1, 0}); break;
-		case KeyDown:  player->Move(map, {1, 0}); break;
-		case KeyRight: player->Move(map, {0, 1}); break;
-		case KeyLeft:  player->Move(map, {0, -1}); break;
+		case KeyUp:    player->Move(map, {0, -1}); break;
+		case KeyDown:  player->Move(map, {0, 1}); break;
+		case KeyRight: player->Move(map, {1, 0}); break;
+		case KeyLeft:  player->Move(map, {-1, 0}); break;
 		case KeyExit: running = false; break;
 	}
 		
@@ -30,10 +30,10 @@ void Game::HandleInput(KeyPressed key) {
 void Game::EnemiesInput() {
 	for(Player *enemy : enemies) {
 		char dir = enemy->findDirToOpponent(player);
-		if(dir == 'U') enemy->Move(map, {-1, 0});
-		if(dir == 'R') enemy->Move(map, {0, 1});
-		if(dir == 'D') enemy->Move(map, {1, 0});
-		if(dir == 'L') enemy->Move(map, {0, -1});
+		if(dir == 'U') enemy->Move(map, { 0, -1});
+		if(dir == 'R') enemy->Move(map, { 1,  0});
+		if(dir == 'D') enemy->Move(map, { 0,  1});
+		if(dir == 'L') enemy->Move(map, {-1,  0});
 	}
 }
 
