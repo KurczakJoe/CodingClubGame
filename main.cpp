@@ -1,26 +1,39 @@
 #include <time.h>
+#include "Common.h"
 #include "Console.h"
 #include "Map.h"
 #include "Game.h"
 
+/*
+
+       .--> Common <------.
+       | .--> Map <------.|
+       ||       ^        ||
+       ||       |        ||
+       ||      Player <-.||
+       ||               |||
+    Console             Game
+       ^                 ^
+       |                 |
+        `-----Main ------'
+*/
+
 Console console;
-Map map;
+Game game;
 
 int main() {
+	console.Init();
 	srand(time(NULL));
-	while(gamerunning) {
+	
+	while(game.running) {
 		console.ClearScreen();
-		map.DrawMap();
+		console.DrawMap(game.map);
+		console.PrintScore(game.getStatus());
 		
-		console.PrintScore();
-		
-		if(map.CountDots() == 0) {
-			console.PrintEndGame();
-			gamerunning = false;
-		} 
-		
-		system("pause>nul");
-		console.HandleInput();
-		console.EnemiesInput();
+		KeyPressed key = console.getKey();
+		game.HandleInput(key);
+		game.EnemiesInput();
 	}
+	
+	console.PrintEndGame(game.getStatus());
 }

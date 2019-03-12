@@ -1,23 +1,15 @@
-#include <iostream>
+#include <stdlib.h>
 #include "Map.h"
 
-extern const int xSize = 10;
-extern const int ySize = 10;
-
-char mapTable[xSize][ySize+1] = {
-	"##########",
-	"#        #",
-	"#        #",
-	"#        #",
-	"#        #",
-	"#        #",
-	"#        #",
-	"#        #",
-	"#        #",
-	"##########"};
-
-
 Map::Map() {
+	xSize = 10;
+	ySize = 10;
+
+	// frame
+	for (int x=0; x<xSize; x++)
+		for (int y=0; y<ySize; y++)
+			mapTable[x][y] = (x==0 || y==0 || x==xSize-1 || y==ySize-1) ? '#' : ' ';
+	
 	this->PlaceDots();
 }
 
@@ -45,8 +37,4 @@ int Map::CountDots() {
 	return dots;
 }
 
-void Map::DrawMap() {
-	for(int i = 0; i < xSize; i++) {
-		std::cout << mapTable[i] << std::endl;
-	}
-}
+

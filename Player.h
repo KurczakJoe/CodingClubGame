@@ -2,13 +2,14 @@
 #define PLAYER_H
 #include <iostream>
 #include "Point.h"
+#include "Map.h"
 #pragma once
 
 class Player {
 public:
-	Player(Point loc, char av, int pow, std::string name);
-	~Player();	
-	void Move(Point point);
+	Player(Map &map, Point loc, char av, int pow, std::string name);
+	~Player();
+	void Move(Map &map, Point point);
 	char findDirToOpponent(Player *player);
 	void attack(Player *player);
 
