@@ -13,7 +13,6 @@ Player::Player(Map &map, Point loc, char av, int pow, std::string name) {
 }
 
 Player::~Player() {
-	
 }
 
 void Player::Move(Map &map, Point point) {

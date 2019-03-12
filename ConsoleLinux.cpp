@@ -11,15 +11,15 @@ Console::~Console() {
 }
 
 void Console::Init() {
-    initscr();
-    noecho();
-    cbreak();
-    keypad(stdscr, TRUE);
-    refresh();
+	initscr();
+	noecho();
+	cbreak();
+	keypad(stdscr, TRUE);
+	refresh();
 }
 
 void Console::ClearScreen() {
-    clear();
+	clear();
 }
 
 KeyPressed Console::getKey() {
@@ -51,10 +51,10 @@ void Console::PrintScore(Status status) {
 	refresh();
 }
 
-void Console::PrintEndGame(Status status) {
+void Console::PrintEndGame(Status summary) {
 	printw("======================\n");
 	printw("Game over!\n");
-	printw("The winner is: %s\n", status.winner_name);
+	printw("The winner is: %s\n", summary.winner_name);
 	printw("======================\n");
 	refresh();
 }

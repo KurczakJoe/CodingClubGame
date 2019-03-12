@@ -13,12 +13,12 @@ void Console::Init() {
 }
 
 void Console::ClearScreen() {
-    HANDLE hOut;
-    COORD Position;
-    hOut = GetStdHandle(STD_OUTPUT_HANDLE);
-    Position.X = 0;
-    Position.Y = 0;
-    SetConsoleCursorPosition(hOut, Position);
+	HANDLE hOut;
+	COORD Position;
+	hOut = GetStdHandle(STD_OUTPUT_HANDLE);
+	Position.X = 0;
+	Position.Y = 0;
+	SetConsoleCursorPosition(hOut, Position);
 }
 
 KeyPressed Console::getKey() {
@@ -48,9 +48,9 @@ void Console::PrintScore(Status status) {
 	std::cout << "======================" << std::endl;
 }
 
-void Console::PrintEndGame(Status status) {
+void Console::PrintEndGame(Status summary) {
 	std::cout << "======================" << std::endl;
 	std::cout << "Game over!" << std::endl;
-	std::cout << "The winner is: " << status.winner_name << std::endl;
+	std::cout << "The winner is: " << summary.winner_name << std::endl;
 	std::cout << "======================" << std::endl;
 }

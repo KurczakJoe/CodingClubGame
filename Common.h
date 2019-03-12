@@ -19,9 +19,5 @@ struct Status {
 	const char *winner_name;
 };
 
-struct Summary {
-};
-
-
 #endif
 
