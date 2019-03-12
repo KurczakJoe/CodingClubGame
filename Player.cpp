@@ -36,6 +36,7 @@ char Player::findDirToOpponent(Player *player) {
 	if(yDif < 0) return 'D';
 	if(xDif > 0) return 'L';
 	if(xDif < 0) return 'R';
+	return '?';
 }
 
 void Player::attack(Player *opponent) {
